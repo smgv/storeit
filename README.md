@@ -586,3 +586,40 @@ npx shadcn@latest add form
 
 npx shadcn@latest add input
 ```
+
+## STEP 3:
+
+```
+Appwrite Setup
+
+https://cloud.appwrite.io/
+
+npm install node-appwrite --save
+
+Error:
+code ERESOLVE
+npm error ERESOLVE could not resolve
+npm error
+npm error While resolving: react-hook-form@7.53.2
+npm error Found: react@19.0.0-rc-66855b96-20241106
+
+Solution:
+override react and react-dom in package.json
+
+"overrides": {
+  "react": "$react",
+  "react-dom": "$react-dom"
+}
+
+add all env variables in .env.local
+
+created a lib/appwrite folder having config.ts and index.ts
+config.ts having all the config variables
+
+index.ts having the appwrite sdk code
+createSessionClient() to create a session client
+createAdminClient() to create a admin client
+
+created a lib/actions folder having user.actions.ts
+user.actions having all the appwrite sdk code to perform actions on users like signin, signup, etc.
+```
