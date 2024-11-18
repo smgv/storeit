@@ -86,64 +86,64 @@ added .vscode folder having settings.json
 <summary><code>tailwind.config.ts</code></summary>
 
 ```typescript
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: ['class'],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
         brand: {
-          DEFAULT: "#FA7275",
-          100: "#EA6365",
+          DEFAULT: '#FA7275',
+          100: '#EA6365',
         },
-        red: "#FF7474",
-        error: "#b80000",
-        green: "#3DD9B3",
-        blue: "#56B8FF",
-        pink: "#EEA8FD",
-        orange: "#F9AB72",
+        red: '#FF7474',
+        error: '#b80000',
+        green: '#3DD9B3',
+        blue: '#56B8FF',
+        pink: '#EEA8FD',
+        orange: '#F9AB72',
         light: {
-          100: "#333F4E",
-          200: "#A3B2C7",
-          300: "#F2F5F9",
-          400: "#F2F4F8",
+          100: '#333F4E',
+          200: '#A3B2C7',
+          300: '#F2F5F9',
+          400: '#F2F4F8',
         },
         dark: {
-          100: "#04050C",
-          200: "#131524",
+          100: '#04050C',
+          200: '#131524',
         },
       },
       fontFamily: {
-        poppins: ["var(--font-poppins)"],
+        poppins: ['var(--font-poppins)'],
       },
       boxShadow: {
-        "drop-1": "0px 10px 30px 0px rgba(66, 71, 97, 0.1)",
-        "drop-2": "0 8px 30px 0 rgba(65, 89, 214, 0.3)",
-        "drop-3": "0 8px 30px 0 rgba(65, 89, 214, 0.1)",
+        'drop-1': '0px 10px 30px 0px rgba(66, 71, 97, 0.1)',
+        'drop-2': '0 8px 30px 0 rgba(65, 89, 214, 0.3)',
+        'drop-3': '0 8px 30px 0 rgba(65, 89, 214, 0.1)',
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       keyframes: {
-        "caret-blink": {
-          "0%,70%,100%": { opacity: "1" },
-          "20%,50%": { opacity: "0" },
+        'caret-blink': {
+          '0%,70%,100%': { opacity: '1' },
+          '20%,50%': { opacity: '0' },
         },
       },
       animation: {
-        "caret-blink": "caret-blink 1.25s ease-out infinite",
+        'caret-blink': 'caret-blink 1.25s ease-out infinite',
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require('tailwindcss-animate')],
 };
 export default config;
 ```
@@ -576,3 +576,50 @@ export default config;
 ```
 
 </details>
+
+```
+install shadcn
+
+npx shadcn@latest init
+
+npx shadcn@latest add form
+
+npx shadcn@latest add input
+```
+
+## STEP 3:
+
+```
+Appwrite Setup
+
+https://cloud.appwrite.io/
+
+npm install node-appwrite --save
+
+Error:
+code ERESOLVE
+npm error ERESOLVE could not resolve
+npm error
+npm error While resolving: react-hook-form@7.53.2
+npm error Found: react@19.0.0-rc-66855b96-20241106
+
+Solution:
+override react and react-dom in package.json
+
+"overrides": {
+  "react": "$react",
+  "react-dom": "$react-dom"
+}
+
+add all env variables in .env.local
+
+created a lib/appwrite folder having config.ts and index.ts
+config.ts having all the config variables
+
+index.ts having the appwrite sdk code
+createSessionClient() to create a session client
+createAdminClient() to create a admin client
+
+created a lib/actions folder having user.actions.ts
+user.actions having all the appwrite sdk code to perform actions on users like signin, signup, etc.
+```
