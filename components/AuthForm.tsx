@@ -18,6 +18,7 @@ import { Input } from '@/components/ui/input';
 import { createAccount } from '@/lib/actions/user.actions';
 import Image from 'next/image';
 import Link from 'next/link';
+import OtpModal from './OtpModal';
 
 type FormType = 'sign-in' | 'sign-up';
 
@@ -56,8 +57,10 @@ const AuthForm = ({ type }: { type: FormType }) => {
               email: values.email,
             })
           : null;
+      console.log(user);
       setAccountId(user.accountId);
-    } catch {
+    } catch (error) {
+      console.log(error);
       setErrorMessage('Failed to create account. Please try again.');
     } finally {
       setIsLoading(false);
@@ -152,6 +155,11 @@ const AuthForm = ({ type }: { type: FormType }) => {
           </div>
         </form>
       </Form>
+
+      {/* OTP Verification Modal */}
+      {accountId && (
+        <OtpModal email={form.getValues('email')} accountId={accountId} />
+      )}
     </>
   );
 };

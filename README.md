@@ -585,6 +585,10 @@ npx shadcn@latest init
 npx shadcn@latest add form
 
 npx shadcn@latest add input
+
+npx shadcn@latest add alert-dialog
+
+npx shadcn@latest add input-otp
 ```
 
 ## STEP 3:
