@@ -50,7 +50,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
     setIsLoading(true);
     setErrorMessage('');
     try {
-      const user =
+      const user: any =
         type === 'sign-up'
           ? await createAccount({
               fullName: values.fullName || '',
