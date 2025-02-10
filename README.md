@@ -589,6 +589,10 @@ npx shadcn@latest add input
 npx shadcn@latest add alert-dialog
 
 npx shadcn@latest add input-otp
+
+npx shadcn@latest add sheet
+
+npx shadcn@latest add separator
 ```
 
 ## STEP 3:
